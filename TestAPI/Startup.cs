@@ -66,6 +66,8 @@ namespace TestAPI
                         ValidateAudience = false,
                         
                     };
+                    x.Authority = "https://proyecto-final-001.herokuapp.com/";
+                    x.Audience = "https://proyecto-final-001.herokuapp.com/";
                 });
         }
 
