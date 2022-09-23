@@ -21,6 +21,7 @@ namespace TestAPI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls(Environment.GetEnvironmentVariable("PORT"));
                 });
     }
 }
