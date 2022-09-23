@@ -53,12 +53,12 @@ namespace TestAPI
             })
                 .AddJwtBearer(x =>
                 {
-                    x.RequireHttpsMetadata = true;
+                    //x.RequireHttpsMetadata = true;
                     x.SaveToken = true;
                     x.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("HOLA")),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("SECRET"))),
                         ValidateIssuer = false,
                         ValidateAudience = false
                     };
