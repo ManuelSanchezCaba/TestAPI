@@ -84,7 +84,7 @@ namespace TestAPI
 
             app.UseAuthorization();
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
