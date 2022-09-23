@@ -30,8 +30,6 @@ namespace TestAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -55,7 +53,7 @@ namespace TestAPI
             })
                 .AddJwtBearer(x =>
                 {
-                    x.Authority = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                    x.Authority = $"http://*:{Environment.GetEnvironmentVariable("PORT")}";
                     //x.RequireHttpsMetadata = true;
                     x.SaveToken = true;
                     x.TokenValidationParameters = new TokenValidationParameters
