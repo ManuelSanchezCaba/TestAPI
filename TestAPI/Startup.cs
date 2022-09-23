@@ -12,6 +12,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,7 +54,7 @@ namespace TestAPI
             })
                 .AddJwtBearer(x =>
                 {
-                    x.Authority = $"http://*:{Environment.GetEnvironmentVariable("PORT")}";
+                    x.Authority = string.Concat(IPAddress.Any, Environment.GetEnvironmentVariable("PORT"));
                     //x.RequireHttpsMetadata = true;
                     x.SaveToken = true;
                     x.TokenValidationParameters = new TokenValidationParameters
