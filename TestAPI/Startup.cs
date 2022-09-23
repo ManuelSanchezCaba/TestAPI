@@ -56,7 +56,7 @@ namespace TestAPI
             })
                 .AddJwtBearer(x =>
                 {
-                    //x.RequireHttpsMetadata = true;
+                    x.RequireHttpsMetadata = true;
                     x.SaveToken = true;
                     x.TokenValidationParameters = new TokenValidationParameters
                     {
