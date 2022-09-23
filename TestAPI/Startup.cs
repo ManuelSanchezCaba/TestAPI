@@ -54,7 +54,6 @@ namespace TestAPI
             })
                 .AddJwtBearer(x =>
                 {
-                    x.Audience = string.Concat(IPAddress.Any, Environment.GetEnvironmentVariable("PORT"));
                     //x.RequireHttpsMetadata = true;
                     x.SaveToken = true;
                     x.TokenValidationParameters = new TokenValidationParameters
