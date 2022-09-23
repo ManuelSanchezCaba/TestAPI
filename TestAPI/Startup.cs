@@ -32,6 +32,16 @@ namespace TestAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TestAPI", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyCORS", builder =>
+                {
+                    builder.WithOrigins("*")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +57,8 @@ namespace TestAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("MyCORS");
 
             app.UseAuthorization();
 
